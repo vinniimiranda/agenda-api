@@ -8,26 +8,17 @@ Route.post('/logout', async ({ auth }) => {
 })
 
 /** Doctors routes */
-Route.post('doctors', 'DoctorsController.store')
-Route.get('doctors', 'DoctorsController.index')
-Route.get('doctors/:id', 'DoctorsController.show')
-Route.put('doctors/:id', 'DoctorsController.update')
-Route.delete('doctors/:id', 'DoctorsController.destroy')
+Route.resource('doctors', 'DoctorsController')
 
 /** Patients routes */
-Route.post('patients', 'PatientsController.store')
-Route.get('patients', 'PatientsController.index')
-Route.get('patients/:id', 'PatientsController.show')
-Route.put('patients/:id', 'PatientsController.update')
-Route.delete('patients/:id', 'PatientsController.destroy')
+Route.resource('patients', 'PatientsController')
 
 /** Insurance routes */
-Route.post('insurances', 'InsurancesController.store')
-Route.get('insurances', 'InsurancesController.index')
-Route.get('insurances/:id', 'InsurancesController.show')
-Route.put('insurances/:id', 'InsurancesController.update')
-Route.delete('insurances/:id', 'InsurancesController.destroy')
+Route.resource('insurances', 'InsurancesController')
+
+/** Insurance routes */
+Route.resource('appointments', 'AppointmentsController')
 
 /** Users routes */
-Route.get('users', 'UsersController.index').middleware('auth')
+Route.get('users', 'UsersController.index')
 
